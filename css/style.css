@@ -23,6 +23,7 @@
   --tran-05: all 0.5s ease;
 }
 
+/* ========= BODY =========== */
 body{
   height: 100vh;
   transition: var(--tran-02);
@@ -38,9 +39,9 @@ body.dark{
   --toggle-color: #FFF;
   --text-color: #CCC;
 }
-/* ========= Resuable CSS (Многоразовый) =========== */
 
-.sidebar .text{
+/* ========= CSS многоразовый =========== */
+.text{
   opacity: 1;
   font-size: 16px;
   font-weight: 500;
@@ -49,7 +50,7 @@ body.dark{
   transition: var(--tran-03);
 }
 
-.sidebar .image{
+.image{
   min-width: 60px;
   display: flex;
   align-items: center;
@@ -67,6 +68,8 @@ body.dark{
   background: var(--sidebar-color);
 }
 
+
+/* ========= CLOSE =========== */
 .sidebar.close{
   width: 88px;
 }
@@ -75,7 +78,12 @@ body.dark{
   opacity: 0;
 }
 
-/* sidebar->header */
+.sidebar.close header .toggle{
+  transform: translateY(-50%);
+}
+
+
+/* ========= HEADER =========== */
 .sidebar header{
   position: relative;
 }
@@ -119,7 +127,31 @@ header .image-text .header-text{
   transform: translateY(-50%) rotate(180deg);
 }
 
-/* sidebar->menu-bar */
+
+/* ========= MENU-BAR =========== */
+.sidebar .menu-bar{
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 50px);
+  justify-content: space-between;
+}
+
+/* поиск */
+.sidebar .search-box{
+  border-radius: 6px;
+  background: var(--primary-color-light);
+}
+
+.search-box input{
+  width: 100%;
+  border: none;
+  height: 100%;
+  outline: none;
+  border-radius: 6px;
+  background: var(--primary-color-light);
+}
+
+/* 1-6 */
 .sidebar li{
   height: 50px;
   display: flex;
@@ -155,46 +187,13 @@ header .image-text .header-text{
   background: var(--primary-color);
 }
 
-.sidebar.close header .toggle{
-  transform: translateY(-50%);
-}
-
-body.dark .sidebar header .toggle{
-  transform: rotate(180deg);
-  color: var(--text-color);
-}
-
-.sidebar .search-box{
-  border-radius: 6px;
-  background: var(--primary-color-light);
-}
-
-.search-box input{
-  width: 100%;
-  border: none;
-  height: 100%;
-  outline: none;
-  border-radius: 6px;
-  background: var(--primary-color-light);
-}
-
 .sidebar li a:hover .icon,
 .sidebar li a:hover .text{
   color: var(--sidebar-color);
 }
 
-body.dark .sidebar li a:hover .icon,
-body.dark .sidebar li a:hover .text{
-  color: var(--text-color);
-}
 
-.sidebar .menu-bar{
-  display: flex;
-  flex-direction: column;
-  height: calc(100% - 50px);
-  justify-content: space-between;
-}
-
+/* bottom-content */
 .menu-bar .mode{
   position: relative;
   border-radius: 6px;
@@ -205,6 +204,8 @@ body.dark .sidebar li a:hover .text{
   position: absolute;
 }
 
+
+/* луна и солнце */
 .menu-bar .mode .moon-sun{
   width: 60px;
   height: 50px;
@@ -216,6 +217,8 @@ body.dark .sidebar li a:hover .text{
   opacity: 0;
 }
 
+
+/* кнопка смены темы */
 .menu-bar .mode .toggle-switch{
   right: 0;
   height: 100%;
@@ -249,6 +252,19 @@ body.dark .sidebar li a:hover .text{
   background: var(--sidebar-color);
 }
 
+
+
+/* ========= DARK =========== */
 body.dark .switch::before{
   left: 25px;
+}
+
+body.dark .sidebar header .toggle{
+  transform: rotate(180deg);
+  color: var(--text-color);
+}
+
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text{
+  color: var(--text-color);
 }
